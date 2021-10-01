@@ -1,0 +1,46 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1633067632.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1633067632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A French Army officer became a Scandinavian King."
+		},
+		{
+			"character": "character-1633067632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The man behind the title Karl XIV Johan, who took the Swedish throne, was actually a Jean Baptiste Bernadotte."
+		},
+		{
+			"character": "character-1633067632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The Frenchman was a career soldier whose life took an unexpected turn due to the Napoleonic Wars, the decline of Swedish power in the Baltic, and the unexpected early death of a Danish prince."
+		},
+		{
+			"action": "leaveall",
+			"character": "character-1633067632.json",
+			"event_id": "dialogic_003"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1633068327.json",
+		"name": "marlin3"
+	}
+}
