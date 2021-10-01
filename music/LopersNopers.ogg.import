@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LopersNopers.ogg-4225602052a2409813d48d327b2f1277.oggstr"
+
+[deps]
+
+source_file="res://music/LopersNopers.ogg"
+dest_files=[ "res://.import/LopersNopers.ogg-4225602052a2409813d48d327b2f1277.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
