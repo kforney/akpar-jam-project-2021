@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-concern.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -23,9 +23,20 @@
 [ext_resource path="res://graphics/frog.png" type="Texture" id=21]
 [ext_resource path="res://graphics/rainbow_frog.png" type="Texture" id=22]
 [ext_resource path="res://graphics/horsehead_platter.png" type="Texture" id=23]
+[ext_resource path="res://graphics/Snail.png" type="Texture" id=24]
+[ext_resource path="res://graphics/shigi-possum.png" type="Texture" id=25]
+[ext_resource path="res://graphics/scuffedCrate.png" type="Texture" id=26]
+[ext_resource path="res://graphics/shigi-whale.png" type="Texture" id=27]
+[ext_resource path="res://graphics/rat.png" type="Texture" id=28]
+[ext_resource path="res://graphics/RATHER ANATOMICALLY CORRECT GIANT ISOPOD.png" type="Texture" id=29]
+[ext_resource path="res://graphics/insomniacondor.png" type="Texture" id=30]
+[ext_resource path="res://graphics/leucisticOpossum.png" type="Texture" id=31]
+[ext_resource path="res://graphics/giraffe.png" type="Texture" id=32]
+[ext_resource path="res://graphics/pandafriend/panda1.png" type="Texture" id=33]
+[ext_resource path="res://music/LopersNopers.ogg" type="AudioStream" id=34]
 
 [sub_resource type="AnimatedTexture" id=55]
-flags = 7
+flags = 5
 frames = 6
 pause = true
 frame_0/texture = ExtResource( 14 )
@@ -50,6 +61,9 @@ height = 2.0
 radius = 0.5
 height = 2.0
 
+[sub_resource type="CylinderShape" id=59]
+radius = 2.58581
+
 [sub_resource type="SpatialMaterial" id=56]
 albedo_texture = ExtResource( 4 )
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
@@ -64,7 +78,7 @@ uv1_triplanar = true
 script = ExtResource( 9 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, -2.47269e-07, 2.47269e-07, 0, 0.707107, 0.707107, -3.49691e-07, -0.707107, 0.707107, 3.65682e-07, 2.71355, 2.09146 )
+transform = Transform( 1, -2.47269e-07, 2.47269e-07, 1.51735e-07, 0.943893, 0.330251, -3.15056e-07, -0.330251, 0.943893, 3.65682e-07, 1.58294, 2.86172 )
 current = true
 
 [node name="Player" type="KinematicBody" parent="." groups=["early_unlockable", "lockable", "player"]]
@@ -87,7 +101,7 @@ transform = Transform( 0.99999, 0, 0.00436331, 0, 1, 0, -0.00436331, 0, 0.99999,
 shape = SubResource( 35 )
 
 [node name="CameraBase" type="Position3D" parent="Player"]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0 )
+transform = Transform( 1.31134e-07, 0, -1, -0.433911, 0.900956, -5.69005e-08, 0.900956, 0.433911, 1.18146e-07, 0, 0, 0 )
 
 [node name="CameraOffset" type="Position3D" parent="Player/CameraBase"]
 transform = Transform( 1.31134e-07, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, -9.27259e-08, 9.27259e-08, 2.09146, 2.25255, -2.84217e-14 )
@@ -97,8 +111,16 @@ transform = Transform( -1, 5.84984e-08, -5.84984e-08, -6.18172e-08, 0, 1, 6.1817
 remote_path = NodePath("../../../../Camera")
 update_scale = false
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource( 11 )
+autoplay = true
+bus = "Music"
+
+[node name="Listener" type="Listener" parent="Player"]
+current = true
+
 [node name="Fox" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90716, 0.857802, -1.157 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21367, 0.857802, -1.64386 )
 pixel_size = 0.002
 texture = ExtResource( 6 )
 
@@ -107,6 +129,29 @@ texture = ExtResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="Fox/StaticBody"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 50 )
+
+[node name="DialogueThing" parent="Fox" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09284, -0.857802, 0.675973 )
+priority = 1.0
+dialogue_scene = "bulgogi"
+dlg_max = 2
+
+[node name="Snail" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15059, 0.857802, -3.40769 )
+pixel_size = 0.002
+texture = ExtResource( 24 )
+
+[node name="StaticBody" type="StaticBody" parent="Snail"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Snail/StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 50 )
+
+[node name="DialogueThing" parent="Snail" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09284, -0.857802, 0.675973 )
+priority = 1.0
+dialogue_scene = "snail"
+dlg_max = 2
 
 [node name="Poovoo" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87601, 0.857802, 11.2003 )
@@ -123,6 +168,21 @@ shape = SubResource( 58 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167194, 0, -0.0324812 )
 dialogue_scene = "poovoo"
 dlg_max = 2
+
+[node name="Area" type="Area" parent="Poovoo"]
+audio_bus_override = true
+audio_bus_name = "Poo"
+reverb_bus_enable = true
+reverb_bus_name = "Poo"
+
+[node name="CollisionShape" type="CollisionShape" parent="Poovoo/Area"]
+shape = SubResource( 59 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Poovoo/Area"]
+stream = ExtResource( 34 )
+autoplay = true
+max_distance = 5.0
+bus = "Poo"
 
 [node name="Marlin" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60219, 0.857802, 7.61296 )
@@ -177,10 +237,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0239, 0.85016, -5.65571 )
 pixel_size = 0.003
 texture = ExtResource( 22 )
 
-[node name="DialogueThing" parent="." instance=ExtResource( 7 )]
-priority = 1.0
-dialogue_scene = "fox"
-
 [node name="Billboardy" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18985, -0.0691347 )
 visible = false
@@ -188,17 +244,11 @@ pixel_size = 0.002
 texture = ExtResource( 8 )
 
 [node name="Billboardy2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95408, 0.607505, 2.69766 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.48887, 0.607505, 2.69766 )
 pixel_size = 0.001
 texture = ExtResource( 10 )
 
 [node name="DialogPlaceholder" type="Node" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = -80.0
-autoplay = true
-bus = "Music"
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577596, 0 )
@@ -269,3 +319,52 @@ light_energy = 0.5
 shadow_enabled = true
 
 [node name="MOAR_LEVEL" parent="." instance=ExtResource( 18 )]
+
+[node name="Billboardy3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.24751, 0.508869, 2.46253 )
+pixel_size = 0.05
+texture = ExtResource( 26 )
+
+[node name="Billboardy4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25549, 0.508869, 3.53573 )
+pixel_size = 0.05
+texture = ExtResource( 26 )
+
+[node name="Billboardy5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1182, 1.49119, -6.90589 )
+texture = ExtResource( 25 )
+
+[node name="Billboardy11" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4707, 2.8335, 7.80644 )
+pixel_size = 0.03
+texture = ExtResource( 32 )
+
+[node name="Billboardy9" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20916, 3.00845, 6.51379 )
+pixel_size = 0.005
+texture = ExtResource( 30 )
+
+[node name="Billboardy10" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2944, 1.17217, -4.19362 )
+pixel_size = 0.005
+texture = ExtResource( 31 )
+
+[node name="Billboardy12" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50511, 1.67185, 3.36133 )
+pixel_size = 0.001
+texture = ExtResource( 33 )
+
+[node name="Billboardy6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65306, 0.805591, 15.4701 )
+pixel_size = 0.002
+texture = ExtResource( 27 )
+
+[node name="Billboardy7" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.49, 0.625503, 14.5007 )
+pixel_size = 0.002
+texture = ExtResource( 28 )
+
+[node name="Billboardy8" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8722, 0.248632, 13.1935 )
+pixel_size = 0.005
+texture = ExtResource( 29 )
