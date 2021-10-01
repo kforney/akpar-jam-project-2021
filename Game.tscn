@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-concern.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://graphics/giraffe.png" type="Texture" id=32]
 [ext_resource path="res://graphics/pandafriend/panda1.png" type="Texture" id=33]
 [ext_resource path="res://music/LopersNopers.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Area.gd" type="Script" id=35]
 
 [sub_resource type="AnimatedTexture" id=55]
 flags = 5
@@ -62,7 +63,7 @@ radius = 0.5
 height = 2.0
 
 [sub_resource type="CylinderShape" id=59]
-radius = 2.58581
+radius = 6.5
 
 [sub_resource type="SpatialMaterial" id=56]
 albedo_texture = ExtResource( 4 )
@@ -78,7 +79,7 @@ uv1_triplanar = true
 script = ExtResource( 9 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, -2.47269e-07, 2.47269e-07, 1.51735e-07, 0.943893, 0.330251, -3.15056e-07, -0.330251, 0.943893, 3.65682e-07, 1.58294, 2.86172 )
+transform = Transform( 1, -2.47269e-07, 2.47269e-07, 2.31632e-08, 0.752392, 0.658716, -3.48923e-07, -0.658716, 0.752392, 3.65682e-07, 2.57007, 2.23607 )
 current = true
 
 [node name="Player" type="KinematicBody" parent="." groups=["early_unlockable", "lockable", "player"]]
@@ -101,7 +102,7 @@ transform = Transform( 0.99999, 0, 0.00436331, 0, 1, 0, -0.00436331, 0, 0.99999,
 shape = SubResource( 35 )
 
 [node name="CameraBase" type="Position3D" parent="Player"]
-transform = Transform( 1.31134e-07, 0, -1, -0.433911, 0.900956, -5.69005e-08, 0.900956, 0.433911, 1.18146e-07, 0, 0, 0 )
+transform = Transform( 1.31134e-07, 0, -1, -0.0662391, 0.997804, -8.68621e-09, 0.997804, 0.0662391, 1.30846e-07, 0, 0, 0 )
 
 [node name="CameraOffset" type="Position3D" parent="Player/CameraBase"]
 transform = Transform( 1.31134e-07, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, -9.27259e-08, 9.27259e-08, 2.09146, 2.25255, -2.84217e-14 )
@@ -170,16 +171,21 @@ dialogue_scene = "poovoo"
 dlg_max = 2
 
 [node name="Area" type="Area" parent="Poovoo"]
-audio_bus_override = true
+collision_layer = 0
+collision_mask = 32768
 audio_bus_name = "Poo"
 reverb_bus_enable = true
 reverb_bus_name = "Poo"
+script = ExtResource( 35 )
+fade_radius = 6.0
+fade_full = 0.5
 
 [node name="CollisionShape" type="CollisionShape" parent="Poovoo/Area"]
 shape = SubResource( 59 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Poovoo/Area"]
 stream = ExtResource( 34 )
+unit_db = 12.0
 autoplay = true
 max_distance = 5.0
 bus = "Poo"
@@ -331,11 +337,11 @@ pixel_size = 0.05
 texture = ExtResource( 26 )
 
 [node name="Billboardy5" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1182, 1.49119, -6.90589 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1182, 1.51697, -6.90589 )
 texture = ExtResource( 25 )
 
 [node name="Billboardy11" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4707, 2.8335, 7.80644 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4707, 2.74928, 7.80644 )
 pixel_size = 0.03
 texture = ExtResource( 32 )
 
@@ -345,7 +351,7 @@ pixel_size = 0.005
 texture = ExtResource( 30 )
 
 [node name="Billboardy10" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2944, 1.17217, -4.19362 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2944, 1.14446, -4.19362 )
 pixel_size = 0.005
 texture = ExtResource( 31 )
 
@@ -355,7 +361,7 @@ pixel_size = 0.001
 texture = ExtResource( 33 )
 
 [node name="Billboardy6" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65306, 0.805591, 15.4701 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65306, 0.767227, 15.4701 )
 pixel_size = 0.002
 texture = ExtResource( 27 )
 
@@ -365,6 +371,9 @@ pixel_size = 0.002
 texture = ExtResource( 28 )
 
 [node name="Billboardy8" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8722, 0.248632, 13.1935 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8399, 0.199204, 13.1935 )
 pixel_size = 0.005
 texture = ExtResource( 29 )
+
+[connection signal="body_entered" from="Poovoo/Area" to="Poovoo/Area" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Poovoo/Area" to="Poovoo/Area" method="_on_Area_body_exited"]
