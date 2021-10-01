@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/parrot.wav-ad249f9876eb0dc5e4d9612305203497.sample"
+
+[deps]
+
+source_file="res://soundEffects/parrot.wav"
+dest_files=[ "res://.import/parrot.wav-ad249f9876eb0dc5e4d9612305203497.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

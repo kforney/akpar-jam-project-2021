@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fart.wav-cfadea08bedabc18c1c72ee35b8d907b.sample"
+
+[deps]
+
+source_file="res://soundEffects/fart.wav"
+dest_files=[ "res://.import/fart.wav-cfadea08bedabc18c1c72ee35b8d907b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

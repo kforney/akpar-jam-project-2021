@@ -1,4 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="OccluderShapeSphere" id=1]
+spheres = [ Plane( 0, 0, 0, 1 ) ]
 
 [node name="Billboardy" type="Sprite3D"]
 billboard = 2
+
+[node name="Occluder" type="Occluder" parent="."]
+shape = SubResource( 1 )

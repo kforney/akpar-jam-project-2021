@@ -12,15 +12,22 @@ onready var dlg_holder := $DialogPlaceholder
 func _ready():
 	pass # Replace with function body.
 
-var present_lock := false
+var present_lock := false setget _set_present_lock
+
+func _set_present_lock(v):
+	present_lock = v
+	if is_inside_tree():
+		get_tree().call_group("lockable", "update_lock", v)
 
 var active_scn := ""
 
 func present_dlg(dlg):
+	if Dialogic.get_current_timeline():
+		return
 	if present_lock: return
 
 	print("presenting %s" % dlg)
-	present_lock = true
+	self.present_lock = true
 	var dlg_node = Dialogic.start(dlg)
 	add_child(dlg_node)
 	dlg_node.connect("timeline_end", self, "_on_timeline_end")
@@ -31,9 +38,8 @@ func present_dlg(dlg):
 
 
 func _on_timeline_end(timeline_name):
-	present_lock = false
 	print("timeline end %s" % timeline_name)
-
-
-func _on_timeline_start(timeline_name):
-	present_lock = true
+	get_tree().call_group("early_unlockable", "early_unlock")
+	yield(get_tree().create_timer(0.5), "timeout")
+	self.present_lock = false
+	print("present_unlocked")
