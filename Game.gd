@@ -5,6 +5,8 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
+const dlg_scn := preload("res://addons/dialogic/Dialog.tscn")
+onready var dlg_holder := $DialogPlaceholder
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,17 +18,22 @@ var active_scn := ""
 
 func present_dlg(dlg):
 	if present_lock: return
-	var scn = Dialogic.start(dlg)
-	active_scn = dlg
-	add_child(scn)
-	present_lock = true
-	scn.connect("timeline_end", self, "_on_timeline_end")
 
-func _on_timeline_end(scn):
-	if active_scn and scn == active_scn:
-		present_lock = false
-		active_scn = ""
+	print("presenting %s" % dlg)
+	present_lock = true
+	var dlg_node = Dialogic.start(dlg)
+	add_child(dlg_node)
+	dlg_node.connect("timeline_end", self, "_on_timeline_end")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_timeline_end(timeline_name):
+	present_lock = false
+	print("timeline end %s" % timeline_name)
+
+
+func _on_timeline_start(timeline_name):
+	present_lock = true

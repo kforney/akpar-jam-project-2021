@@ -11,7 +11,11 @@ func _ready():
 	pass # Replace with function body.
 
 func present(dlg):
-	get_tree().call_group("game", "present_dlg", dlg)
+	var g := get_tree().get_nodes_in_group("game")
+	if g.size() != 1:
+		push_error("BAD THINGS")
+	else:
+		g[0].present_dlg(dlg)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
