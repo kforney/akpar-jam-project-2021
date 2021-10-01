@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamejamsong6.ogg-8ee3fcc2d2da235eec34c6d5e5df8a6c.oggstr"
+
+[deps]
+
+source_file="res://music/gamejamsong6.ogg"
+dest_files=[ "res://.import/gamejamsong6.ogg-8ee3fcc2d2da235eec34c6d5e5df8a6c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

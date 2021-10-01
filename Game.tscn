@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-concern.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,13 +10,14 @@
 [ext_resource path="res://graphics/pandafriend/panda2.png" type="Texture" id=8]
 [ext_resource path="res://Game.gd" type="Script" id=9]
 [ext_resource path="res://graphics/grapes.png" type="Texture" id=10]
-[ext_resource path="res://music/gamejamsong2.ogg" type="AudioStream" id=11]
+[ext_resource path="res://music/gamejamsong6.ogg" type="AudioStream" id=11]
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-surprise.png" type="Texture" id=12]
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-distressed.png" type="Texture" id=13]
 [ext_resource path="res://graphics/penguinfriend/shigi-hat-penguin.png" type="Texture" id=14]
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-what.png" type="Texture" id=15]
 [ext_resource path="res://graphics/penguinfriend/shigi-penguin-laugh-happy.png" type="Texture" id=16]
 [ext_resource path="res://graphics/grass.png" type="Texture" id=17]
+[ext_resource path="res://MOAR_LEVEL.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AnimatedTexture" id=55]
 flags = 7
@@ -116,11 +117,11 @@ texture = ExtResource( 10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -80.0
 autoplay = true
 bus = "Music"
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577596, 0 )
 use_collision = true
 
 [node name="CSGCombiner" type="CSGCombiner" parent="CSGCombiner"]
@@ -186,3 +187,5 @@ material = SubResource( 57 )
 transform = Transform( 0.806929, -0.0255268, 0.590096, -0.397933, 0.714799, 0.575076, -0.43648, -0.698864, 0.566634, 0, 13.7666, 0 )
 light_energy = 0.5
 shadow_enabled = true
+
+[node name="MOAR_LEVEL" parent="." instance=ExtResource( 18 )]

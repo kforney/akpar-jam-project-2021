@@ -1,10 +1,15 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="OccluderShapeSphere" id=1]
-spheres = [ Plane( 0, 0, 0, 1 ) ]
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.5
 
 [node name="Billboardy" type="Sprite3D"]
 billboard = 2
 
-[node name="Occluder" type="Occluder" parent="."]
-shape = SubResource( 1 )
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00761336, 0 )
+cast_shadow = 3
+mesh = SubResource( 1 )
+material/0 = null
