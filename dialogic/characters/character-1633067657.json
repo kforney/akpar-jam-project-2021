@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "He frogs.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1633067657.json",
+	"mirror_portraits": false,
+	"name": "Frog",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://graphics/frogportrait.png"
+		}
+	],
+	"scale": 100
+}
