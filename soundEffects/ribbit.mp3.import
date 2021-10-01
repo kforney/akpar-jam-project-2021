@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ribbit.mp3-527f5070448d4bf43220a1e5eb0756a1.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/ribbit.mp3"
+dest_files=[ "res://.import/ribbit.mp3-527f5070448d4bf43220a1e5eb0756a1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -45,11 +45,13 @@ _global_script_class_icons={
 [application]
 
 config/name="AKPAR Jam Project"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
+GameDlg="*res://GameDlg.gd"
 
 [editor_plugins]
 
